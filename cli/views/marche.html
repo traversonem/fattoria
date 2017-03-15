@@ -1,0 +1,33 @@
+<section ng-if="!id">
+	<h1>
+	   <a href="#/home">Marche</a>
+	</h1>
+	<ul>
+		<li ng-repeat="d in data">
+			<a ng-href="#/marche/{{d.id}}">{{d.marca|uppercase}}</a>
+		</li>
+		<li>
+			<a href="#/marche/new" style="">
+				Aggiungi Nuova
+			</a>
+		</li>
+	</ul>
+</section>
+
+<section ng-if="id">
+	<h1>
+	   {{d.marca|uppercase}} <span ng-hide="d.marca">Nuova marca</span>
+	</h1>
+	<form ng-submit="save()" class="well">
+		<p class="form-group">
+			<label>Marca</label>
+			<input ng-model="d.marca" autofocus />
+		</p>
+			<button type="submit" title="Salva">
+				Salva
+			</button>
+			<a accesskey="n"  href="#/marche/new">Nuova</a>
+			<a accesskey="l"  href="#/marche">Elenco</a>
+			<a accesskey="x" ng-click="remove()"  href="#">Elimina</a>
+	</form>
+</section>
